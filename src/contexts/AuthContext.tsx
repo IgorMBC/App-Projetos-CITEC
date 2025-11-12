@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../services/firebase";
+import { auth } from "../services/firebaseConfig";
 
 const login = async (matricula:string, senha:string) => {
   try {
