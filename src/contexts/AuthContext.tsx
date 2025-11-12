@@ -1,33 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
-
-import { onAuthStateChanged, type User } from "firebase/auth";
-
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../services/firebase";
 
-interface AuthContextType {
-  user: User | null;
-  loading: boolean;
-}
-
-const AuthContext = createContext<AuthContextType>({ user: null, loading: true });
-
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-    return unsubscribe;
-  }, []);
-
-  return (
-    <AuthContext.Provider value={{ user, loading }}>
-      {children}
-    </AuthContext.Provider>
-  );
+const login = async (matricula:string, senha:string) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, matricula, senha);
+    return userCredential;
+  } catch (error) {
+    console.error('Falha no login', error);
+  }  
 };
-
-export const useAuth = () => useContext(AuthContext);

@@ -1,10 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useAuth } from "../src/contexts/AuthContext";
-
 import type { JSX } from "react";
-
+import { useAuth } from "../src/contexts/AuthContext";
 import './App.css'
-
 import { Login } from "./pages/Login";
 import { Projetos } from "./pages/Projetos";
 import { CriarProjetos } from "./pages/CriarProjetos";
