@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import type { JSX } from "react";
-import { useAuth } from "../src/contexts/AuthContext";
+//import type { JSX } from "react";
+//import { useAuth } from "../src/contexts/AuthContext";
 import './App.css'
-import { Login } from "./pages/Login";
+import { Login } from "./pages/LoginPage/Login";
 import { Projetos } from "./pages/Projetos";
 import { CriarProjetos } from "./pages/CriarProjetos";
 import { Sobre } from "./pages/Sobre";
 
+/*
 function PrivateRoute({ children }: {children: JSX.Element}){
   const { user, loading } = useAuth();
 
@@ -15,37 +16,32 @@ function PrivateRoute({ children }: {children: JSX.Element}){
 
   return children;
 }
+*/
 
 export function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* Rota pública */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
 
         {/* Rotas protegidas */}
         <Route
-          path="/"
+          path="/projetos"
           element={
-            <PrivateRoute>
               <Projetos />
-            </PrivateRoute>
           }
         />
         <Route
           path="/criar"
           element={
-            <PrivateRoute>
               <CriarProjetos />
-            </PrivateRoute>
           }
         />
         <Route
           path="/sobre"
           element={
-            <PrivateRoute>
               <Sobre />
-            </PrivateRoute>
           }
         />
 
