@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"
+import "./LoginPage.css"
 
-export function Login() {
+export function LoginPage() {
     const navigate = useNavigate();
     
     const [matricula, setMatricula] = useState("");
@@ -94,10 +94,10 @@ export function Login() {
 
                     {/* MENSAGEM DE ERRO */}
                     <div className="login-error-container">
-                        {erro && <p key={erro} className="login-error">{erro}</p>};
+                        {erro && <p key={erro} className="login-error">{erro}</p>}
                     </div>
 
-                    {/* Botão */}
+                    {/* Botão Entrar */}
                     <section>
                         <button onClick={handleLogin}>
                         <span>Entrar</span>
