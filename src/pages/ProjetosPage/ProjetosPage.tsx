@@ -1,4 +1,4 @@
-import "./ProjectsList.css";
+import "./ProjetosPage.css";
 
 export function ProjetosPage() {
     return (
